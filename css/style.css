@@ -1,5 +1,6 @@
 
 
+/* Step 1: Animate the logo */
 @keyframes logo{
     0% {width:25px; opacity: 0;}
     100% {width:475px; opacity: 1}
@@ -9,27 +10,29 @@
 }
 
 
-
+/* Step 2: Style the body font and background */
 body {
     font-family: 'Poppins', serif;
     background-image: url('../images/concrete_seamless.png');
     background-color: #f1f1f1;
 }
+/* Step 1: Edit the header tag to use flex */
 header {
     display:flex;
     flex-direction: column;
     align-items: center;
 }
+/* Edit the css for the nav_links class to use flex */
 .nav_links {
     display: flex;
     flex-direction: column;
 
 }
-
+/* Style the links so that they have the same color even after they have been visited */
 .nav_item a:visited {
     color: blue;
 }
-
+/* Identify the proper selector to style ONLY those header elements that are direct children of a card class */
 .card > header {
     background-color: #288088;
     border: solid 2px #45ADAD;
@@ -38,7 +41,7 @@ header {
     border-radius: 50px 50px 0px 0px;
     
 }
-
+/* Use a flex-property to specify an initial “size” of 450px.  You need to think about this from a “flex” perspective. */
 .card {
     border-radius: 50px 50px 0px 0px;
     
@@ -51,7 +54,7 @@ header {
 }   
  
 
-
+/* Use flex to edit the pricing class to match the example */
 .pricing {
     display: flex;
     flex-direction:row;
@@ -59,7 +62,8 @@ header {
     justify-content: center;
     align-items: center;
 }
-
+/* Style the images in the gallery class to have a solid 10px border with a color of #50C7C7,
+10px margin on all four sides and a width of 300px. */
 .gallery img{
     border-style: solid;
     border-width: 10px;
@@ -68,6 +72,7 @@ header {
     width: 300px;
     
 }
+/* Edit the gallery class using flex */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -75,11 +80,13 @@ header {
 }
 
 @media only screen and (min-width: 900px){
+    /* Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties */
     header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
+    /* Edit the css for the pricing and card classes to match our example */
     .nav_links {
         display: flex;
         flex-direction: row;
@@ -89,26 +96,31 @@ header {
 
     .card{
         flex-basis: 275px;
-        justify-content: center;
-
-        
+        justify-content: center;   
     }
+    /* Modify the first header (the one not inside main) 
+    so that it remains visible at the top of the screen even as we scroll down */
     body > header {
         top: 0px;
         position:sticky;
     }
 
 }
+/* The logo class should appear but not be animated if prefers-reduced-motion is selected in the accessibility preferences.  */
 @media screen and (prefers-reduced-motion: reduce) {
     #logo {
         animation: none;
     }
 }
+
 @media print {
+    /* Change the font on your body to Arial with a backup value of  Helvetica */
+    /* The background image should be removed.  */
     body{
         font-family: 'Arial', Helvetica;
         background-image: none;
     }
+    /* Edit the nav/nav_links elements so that they are spaced according to the image above. */
     nav {
         width:100%;
     }
@@ -118,12 +130,13 @@ header {
         justify-content: space-around;
         
     }
-
+    /* Edit the pricing class so that the elements align along the bottom */
     .pricing {
         align-items: flex-end;
         flex-wrap: nowrap;
         
     }
+    /* The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px.  */
     .card {
         border-style: solid;
         border-color: #45ADDD;
@@ -131,6 +144,7 @@ header {
         flex-basis: 325px;
         
     }
+    /* Hide the gallery */
     .gallery {
         display: none;
 
@@ -138,7 +152,7 @@ header {
     #gallery {
         display: none;
     }
-
+    /* Without using list-style-type add the thumbs up entity as shown in the cards */
     main li:nth-child(2)::after {
         content: "\1F44D"
     }  
